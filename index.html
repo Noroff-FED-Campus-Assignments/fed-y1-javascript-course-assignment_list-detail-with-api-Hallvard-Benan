@@ -9,10 +9,10 @@
       name="keywords"
       content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
     />
-    <meta name="author" content="_YOUR_NAME_" />
+    <meta name="author" content="Hallvard Benan" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>_REPLACE_SITE_NAME</title>
+    <script src="/src/js/app.js" defer type="module"></script>
+    <title>Beers</title>
   </head>
   <body class="animate__animated animate__fadeIn">
     <header class="l-header">
@@ -20,7 +20,10 @@
     </header>
 
     <main class="l-main">
-      <section role="search"></section>
+      <section role="search">
+        <input type="search" placeholder="search" class="search-bar" />
+        <button class="search-button">search</button>
+      </section>
 
       <article role="doc-introduction">
         <h2>List</h2>
@@ -29,12 +32,12 @@
       </article>
 
       <section role="list">
-        <div id="js-list-container">_LOADING_INDICATOR_GOES_HERE_</div>
+        <div id="js-list-container">Loading...</div>
       </section>
     </main>
 
     <footer class="l-footer">
-      <small>Created with ❤️ by _REPLACE_</small>
+      <small>Created with ❤️ by Hallvard</small>
     </footer>
   </body>
 </html>

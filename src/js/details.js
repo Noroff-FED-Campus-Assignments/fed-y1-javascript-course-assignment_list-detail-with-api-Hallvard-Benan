@@ -6,9 +6,37 @@ Constants
 */
 
 // TODO: Get DOM elements from the DOM
-
+const detailsContainer = document.querySelector(".details-container");
+const title = document.querySelector("#js-h1");
 // TODO: Get the query parameter from the URL
+const queryString = document.location.search;
 
+const params = new URLSearchParams(queryString);
+const id = params.get("id");
+console.log(id);
+
+const url = `https://api.punkapi.com/v2/beers/${id}`;
+
+async function getBeer() {
+  try {
+    const response = await fetch(url);
+    const result = await response.json();
+    const details = result[0];
+    console.log(details);
+
+    detailsContainer.innerHTML = `
+    <img src="${details.image_url}" alt="image of ""/>
+    <div class="details-description">${details.description}</div>
+    <p>Alcohol percentage: ${details.abv}</p>
+    <p>Best pairings: ${details.food_pairing}</p>`;
+    title.innerHTML = details.name;
+  } catch (error) {
+    console.log(error);
+    detailsContainer.innerHTML = "error";
+  }
+}
+
+getBeer();
 // TODO: Get the id from the query parameter
 
 // TODO: Create a new URL with the id @example: https://www.youtube.com/shorts/ps7EkRaRMzs

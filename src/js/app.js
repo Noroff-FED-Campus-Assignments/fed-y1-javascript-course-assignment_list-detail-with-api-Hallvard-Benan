@@ -15,6 +15,39 @@ DOM manipulation
 */
 
 // TODO: Fetch and Render the list to the DOM
+const url = `https://api.punkapi.com/v2/beers?per_page=80`;
+const resultsContainer = document.querySelector("#js-list-container");
+const searchBar = document.querySelector(".search-bar");
+const searchButton = document.querySelector(".search-button");
+
+async function getBeers() {
+  try {
+    const response = await fetch(url);
+    const results = await response.json();
+    console.log(results);
+
+    resultsContainer.innerHTML = "";
+
+    results.forEach(function (beer) {
+      resultsContainer.innerHTML += `
+    <a href="details.html?id=${beer.id}">
+    <div class="card">
+      <h3>${beer.name}</h3>
+      <div class="card-image">
+        <img src="${beer.image_url}" alt="image of ${beer.name}" class="card-image" />
+        </div>
+        <p>"${beer.tagline}"</p>
+  </div>
+    </a>
+    `;
+      resultsContainer.classList.add("results-list");
+    });
+  } catch (error) {
+    console.log(error);
+    resultsContainer.innerHTML = message("error", error);
+  }
+}
+getBeers();
 
 // TODO: Create event listeners for the filters and the search
 
@@ -22,7 +55,6 @@ DOM manipulation
  * TODO: Create an event listener to sort the list.
  * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L91
  */
-
 /*
 ============================================
 Data fectching

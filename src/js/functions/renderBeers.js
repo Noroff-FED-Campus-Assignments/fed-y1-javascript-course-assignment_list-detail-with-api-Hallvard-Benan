@@ -1,6 +1,9 @@
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
-export const pageNumber = params.get("page");
+export let pageNumber = params.get("page");
+if (!pageNumber) {
+  pageNumber = 1;
+}
 let nextNumber = parseInt(pageNumber) + 1;
 let previousNumber = parseInt(pageNumber) - 1;
 

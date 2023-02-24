@@ -15,13 +15,30 @@ DOM manipulation
 */
 
 import { renderBeers } from "./functions/renderBeers.js";
-import { searchBeers } from "./functions/searchBeers.js";
 import { pageNumber } from "./functions/renderBeers.js";
-import { filterForStrength } from "./functions/searchBeers.js";
-// const searchBar = document.querySelector(".search-bar");
-// const searchButton = document.querySelector(".search-button");
 
-// TODO: Fetch and Render the list to the DOM
+const strengthSelector = document.querySelector("#strength");
+
+function filterForStrength(beers) {
+  strengthSelector.addEventListener("change", function (event) {
+    const filterValue = event.target.value;
+    const filteredBeers = beers.filter(function (beer) {
+      if (
+        parseFloat(beer.abv) <= filterValue &&
+        parseFloat(beer.abv) > filterValue - 6
+      ) {
+        return true;
+      }
+    });
+    if (filterValue) {
+      renderBeers(filteredBeers);
+    }
+  });
+}
+const searchBar = document.querySelector(".search-bar");
+
+searchBar.addEventListener("keyup", () => getBeers(searchBar.value));
+
 const url = `https://api.punkapi.com/v2/beers?page=${pageNumber}&per_page=80`;
 const resultsContainer = document.querySelector("#js-list-container");
 
@@ -29,15 +46,14 @@ async function getBeers(searchUrl = "") {
   let fetchUrl;
   if (!searchUrl) {
     fetchUrl = url;
-  }
+  } else fetchUrl = `https://api.punkapi.com/v2/beers?beer_name=${searchUrl}`;
   try {
     const response = await fetch(fetchUrl);
     const beers = await response.json();
     renderBeers(beers);
-    searchBeers(beers);
     filterForStrength(beers);
   } catch (error) {
-    resultsContainer.innerHTML = `<h2>Sorry, something went wrong 🙉</h2>
+    resultsContainer.innerHTML = `<h2>Sorry, something went wrong bip bop🤖</h2>
                                   <div>${error}</div>`;
   }
 }

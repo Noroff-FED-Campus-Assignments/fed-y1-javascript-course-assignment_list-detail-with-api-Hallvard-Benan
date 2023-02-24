@@ -5,7 +5,6 @@ const strengthSelector = document.querySelector("#strength");
 export function searchBeers(beers) {
   searchBar.onkeyup = function (event) {
     const searchValue = event.target.value.trim().toLowerCase();
-
     const searcedBeers = beers.filter(function (beer) {
       if (beer.name.toLowerCase().includes(searchValue)) {
         return true;

@@ -20,14 +20,16 @@
     </header>
     <main class="l-main">
       <section role="search">
-        <label for="search">Search the page for a beer</label>
+        <label for="search">Search for a beer</label>
         <input
           type="search"
           placeholder="search"
           class="search-bar"
           name="search"
         />
-        <button type="submit" class="search-button">search</button>
+        <button type="button" class="search-button" id="js-search-button">
+          search
+        </button>
         <label for="strength">Max alchol content</label>
         <select name="strength" id="strength" class="strengt-selector">
           <option value="">filter for abv</option>

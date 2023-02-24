@@ -36,7 +36,6 @@ export function renderBeers(beersToRender) {
     </div>
     </a>
     `;
-    // resultsContainer.classList.add("results-list");
   });
 
   let previousNumberHtml = `<a href="index.html?page=${previousNumber}" class="pagebuttons">< Previous page</a></div>`;

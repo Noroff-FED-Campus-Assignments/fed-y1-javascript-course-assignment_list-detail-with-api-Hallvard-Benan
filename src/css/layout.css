@@ -9,7 +9,7 @@ body {
   margin: 0;
   width: 100%;
   min-width: 320px;
-  place-items: flex-start;
+  place-items: center;
   min-height: 100vh;
   display: grid;
   grid-template-columns: auto;
@@ -23,6 +23,7 @@ body {
 .l-header {
   display: flex;
   flex-direction: column;
+  margin: auto;
   grid-area: header;
   width: 100%;
   padding: var(--size-fluid-1);
@@ -32,7 +33,9 @@ body {
   display: flex;
   flex-direction: column;
   grid-area: main;
+  margin: auto;
   width: 100%;
+  max-width: 1450px;
   padding: var(--size-fluid-2);
 }
 

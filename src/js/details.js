@@ -25,10 +25,11 @@ async function getBeer() {
     console.log(details);
 
     detailsContainer.innerHTML = `
-    <img src="${details.image_url}" alt="image of ""/>
     <div class="details-description">${details.description}</div>
     <p>Alcohol percentage: ${details.abv}</p>
-    <p>Best pairings: ${details.food_pairing}</p>`;
+    <p>Best pairings: ${details.food_pairing}</p>
+    <img src="${details.image_url}" alt="image of ""/>
+    `;
     title.innerHTML = details.name;
   } catch (error) {
     console.log(error);

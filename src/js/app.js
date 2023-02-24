@@ -14,39 +14,34 @@ DOM manipulation
 ============================================
 */
 
+import { renderBeers } from "./functions/renderBeers.js";
+import { searchBeers } from "./functions/searchBeers.js";
+import { pageNumber } from "./functions/renderBeers.js";
+import { filterForStrength } from "./functions/searchBeers.js";
+// const searchBar = document.querySelector(".search-bar");
+// const searchButton = document.querySelector(".search-button");
+
 // TODO: Fetch and Render the list to the DOM
-const url = `https://api.punkapi.com/v2/beers?per_page=80`;
+const url = `https://api.punkapi.com/v2/beers?page=${pageNumber}&per_page=80`;
 const resultsContainer = document.querySelector("#js-list-container");
-const searchBar = document.querySelector(".search-bar");
-const searchButton = document.querySelector(".search-button");
 
-async function getBeers() {
+async function getBeers(searchUrl = "") {
+  let fetchUrl;
+  if (!searchUrl) {
+    fetchUrl = url;
+  }
   try {
-    const response = await fetch(url);
-    const results = await response.json();
-    console.log(results);
-
-    resultsContainer.innerHTML = "";
-
-    results.forEach(function (beer) {
-      resultsContainer.innerHTML += `
-    <a href="details.html?id=${beer.id}">
-    <div class="card">
-      <h3>${beer.name}</h3>
-      <div class="card-image">
-        <img src="${beer.image_url}" alt="image of ${beer.name}" class="card-image" />
-        </div>
-        <p>"${beer.tagline}"</p>
-  </div>
-    </a>
-    `;
-      resultsContainer.classList.add("results-list");
-    });
+    const response = await fetch(fetchUrl);
+    const beers = await response.json();
+    renderBeers(beers);
+    searchBeers(beers);
+    filterForStrength(beers);
   } catch (error) {
-    console.log(error);
-    resultsContainer.innerHTML = message("error", error);
+    resultsContainer.innerHTML = `<h2>Sorry, something went wrong 🙉</h2>
+                                  <div>${error}</div>`;
   }
 }
+
 getBeers();
 
 // TODO: Create event listeners for the filters and the search

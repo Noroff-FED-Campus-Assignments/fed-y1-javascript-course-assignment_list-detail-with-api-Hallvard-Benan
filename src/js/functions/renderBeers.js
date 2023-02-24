@@ -41,9 +41,9 @@ export function renderBeers(beersToRender) {
     `;
   });
 
-  let previousNumberHtml = `<a href="index.html?page=${previousNumber}" class="pagebuttons">< Previous page</a></div>`;
+  let previousNumberHtml = `<a href="index.html?page=${previousNumber}" class="pagebuttons">< Previous</a></div>`;
   let nextNumberHtml = `
-      <a href="index.html?page=${nextNumber}" class="pagebuttons">Next page ></a>
+      <a href="index.html?page=${nextNumber}" class="pagebuttons">Next></a>
     `;
   if (pageNumber == 1) {
     previousNumberHtml = "";

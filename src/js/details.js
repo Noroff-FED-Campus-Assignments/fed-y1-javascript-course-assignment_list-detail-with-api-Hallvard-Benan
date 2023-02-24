@@ -28,7 +28,7 @@ async function getBeer() {
     <div class="details-description">${details.description}</div>
     <p>Alcohol percentage: ${details.abv}</p>
     <p>Best pairings: ${details.food_pairing}</p>
-    <img src="${details.image_url}" alt="image of ""/>
+    <img src="${details.image_url}" alt="image of "${details.name}" class="card-image"/>
     `;
     title.innerHTML = details.name;
   } catch (error) {

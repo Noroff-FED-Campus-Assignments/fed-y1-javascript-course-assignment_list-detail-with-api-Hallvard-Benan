@@ -10,14 +10,23 @@ h3 {
   color: var(--text-2);
 }
 
+h4 {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-4);
+}
+
 p {
   font-size: var(--font-size-1);
 }
+
+.logo {
+  max-width: 5rem;
+}
+
 .pagebuttons-container {
   display: flex;
-  justify-content: space-evenly;
-  width: 50%;
-  padding: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .loader-scaffold {
@@ -78,4 +87,8 @@ p {
   padding: 1em 1.5em;
   border-radius: 1rem;
   color: var(--brand);
+}
+
+.filter-section > * {
+  margin-bottom: 0.6rem;
 }

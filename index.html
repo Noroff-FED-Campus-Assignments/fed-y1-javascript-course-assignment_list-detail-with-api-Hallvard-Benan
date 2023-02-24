@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="src/images/beerfavicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
     <meta
@@ -16,22 +16,29 @@
   </head>
   <body class="">
     <header class="l-header">
+      <img
+        src="/src/images/beerfavicon.png
+        "
+        alt="beer logo"
+        class="logo"
+      />
       <a href="index.html?page=1"><h1>Home</h1></a>
     </header>
     <main class="l-main">
-      <section role="search">
+      <section role="search" class="filter-section">
         <label for="search">Search for a beer</label>
         <input
           type="search"
           placeholder="search"
-          class="search-bar"
+          class="search-bar toutch-target"
           name="search"
         />
-        <button type="button" class="search-button" id="js-search-button">
-          search
-        </button>
         <label for="strength">Max alchol content</label>
-        <select name="strength" id="strength" class="strengt-selector">
+        <select
+          name="strength"
+          id="strength"
+          class="strengt-selector toutch-target"
+        >
           <option value="">filter for abv</option>
           <option value="5">5% or less</option>
           <option value="10">10%</option>
@@ -41,7 +48,7 @@
 
       <article role="doc-introduction">
         <div class="pagebuttons-container" id="js-pagebuttons-container"></div>
-        <h2>List of brewdog beers</h2>
+        <h2>Brewdog beers:</h2>
       </article>
 
       <section role="list">

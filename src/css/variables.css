@@ -32,6 +32,7 @@ html {
   --text-1: var(--text-1-light);
   --text-2: var(--text-2-light);
   --text-error: var(--red-6);
+  --text-success: var(--green-6);
 
   --surface-1: var(--surface-1-light);
   --surface-2: var(--surface-2-light);

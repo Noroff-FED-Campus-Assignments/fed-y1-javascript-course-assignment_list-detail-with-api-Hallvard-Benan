@@ -1,6 +1,7 @@
 const detailsContainer = document.querySelector(".details-container");
 const title = document.querySelector("#js-h1");
 const queryString = document.location.search;
+const documentTitle = document.querySelector("title");
 
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
@@ -24,6 +25,7 @@ async function getBeer() {
     }" class="card-image"/>
     `;
     title.innerHTML = details.name;
+    documentTitle.textContent = `${details.name} | Brewster`;
   } catch (error) {
     console.log(error);
     detailsContainer.innerHTML = "error";

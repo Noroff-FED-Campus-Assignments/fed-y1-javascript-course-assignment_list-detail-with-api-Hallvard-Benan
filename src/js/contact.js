@@ -1,11 +1,5 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L50
-============================================
-*/
-// TODO: Get DOM elements from the DOM
 const contactForm = document.getElementById("contact-form");
+const intro = document.getElementById("js-contact-intro");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const addressInput = document.getElementById("address");
@@ -20,19 +14,38 @@ const validationMessageContainer =
 function validateForm(event) {
   event.preventDefault();
 
-  checkLength(nameInput, 1, nameError);
-  checkLength(addressInput, 25, addressError);
-  checkLength(subjectInput, 10, subjectError);
-  validateEmail(emailInput, emailError);
+  hideError(nameError);
+  hideError(emailError);
+  hideError(addressError);
+  hideError(subjectError);
+
+  const nameIsValid = checkLength(nameInput, 1, nameError);
+  const addressIsValid = checkLength(addressInput, 25, addressError);
+  const emailIsValid = validateEmail(emailInput, emailError);
+  const subjectIsValid = checkLength(subjectInput, 10, subjectError);
+
+  if (nameIsValid && addressIsValid && emailIsValid && subjectIsValid) {
+    intro.innerHTML = "";
+    contactForm.innerHTML = `<div><div/>`;
+    validationMessageContainer.innerHTML =
+      '<div class="form-success"><h2>Thank you for your submission!</h2><p>Submission succsessful ✅</p></div><div><a href="javascript:history.back()" class="pagebuttons">← Back to beers</a></div>';
+    contactForm.reset();
+  }
 }
-contactForm.addEventListener("change", validateForm);
+contactForm.addEventListener("submit", validateForm);
 
 function checkLength(target, requiredLength, errorContainer) {
   if (target.value.trim().length < requiredLength) {
     errorContainer.classList.remove("is-hidden");
+    return false;
   } else {
     errorContainer.classList.add("is-hidden");
+    return true;
   }
+}
+
+function hideError(errorContainer) {
+  errorContainer.classList.add("is-hidden");
 }
 
 function validateEmail(email, errorContainer) {
@@ -42,29 +55,9 @@ function validateEmail(email, errorContainer) {
 
   if (patternMatches !== true) {
     errorContainer.classList.remove("is-hidden");
+    return false;
   } else {
     errorContainer.classList.add("is-hidden");
+    return true;
   }
 }
-
-// TODO: Create event listeners for the form
-
-/*
-============================================
-API calls
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L157
-============================================
-*/
-
-// TODO: Set up a function to fetch data from the API
-
-/*
-============================================
-Helper functions
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L118
-============================================
-*/
-
-// TODO: Create a function to validate an input field
-
-// TODO: Create a function to create a DOM element

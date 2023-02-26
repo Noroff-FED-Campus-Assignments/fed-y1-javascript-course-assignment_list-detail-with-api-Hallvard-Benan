@@ -16,25 +16,8 @@ DOM manipulation
 
 import { renderBeers } from "./functions/renderBeers.js";
 import { pageNumber } from "./functions/renderBeers.js";
+import { filterBeers } from "./functions/filters.js";
 
-const strengthSelector = document.querySelector("#strength");
-
-function filterForStrength(beers) {
-  strengthSelector.addEventListener("change", function (event) {
-    const filterValue = event.target.value;
-    const filteredBeers = beers.filter(function (beer) {
-      if (
-        parseFloat(beer.abv) <= filterValue &&
-        parseFloat(beer.abv) > filterValue - 6
-      ) {
-        return true;
-      }
-    });
-    if (filterValue) {
-      renderBeers(filteredBeers);
-    }
-  });
-}
 const searchBar = document.querySelector(".search-bar");
 
 searchBar.addEventListener("keyup", () => getBeers(searchBar.value));
@@ -51,7 +34,8 @@ async function getBeers(searchUrl = "") {
     const response = await fetch(fetchUrl);
     const beers = await response.json();
     renderBeers(beers);
-    filterForStrength(beers);
+
+    filterBeers(beers);
   } catch (error) {
     resultsContainer.innerHTML = `<h2>Sorry, something went wrong bip bop🤖</h2>
                                   <div>${error}</div>`;
@@ -60,6 +44,20 @@ async function getBeers(searchUrl = "") {
 
 getBeers();
 
+// filter.addEventListener("change", function () {
+//   const selectedFilter = filter.value;
+//   let sortedBeers = [];
+
+//   if (selectedFilter === "abv") {
+//     sortedBeers = beers.sort((a, b) => b.abv - a.abv);
+//   } else if (selectedFilter === "a-z") {
+//     sortedBeers = beers.sort((a, b) => a.name.localeCompare(b.name));
+//   } else if (selectedFilter === "z-a") {
+//     sortedBeers = beers.sort((a, b) => b.name.localeCompare(a.name));
+//   }
+
+//   renderBeers(sortedBeers);
+// });
 // TODO: Create event listeners for the filters and the search
 
 /**

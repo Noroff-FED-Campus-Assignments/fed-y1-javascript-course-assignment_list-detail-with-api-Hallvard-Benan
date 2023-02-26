@@ -13,7 +13,7 @@
     <meta name="author" content="_YOUR_NAME_" />
     <link rel="stylesheet" href="/style.css" />
     <!-- TODO: Import Javascript -->
-    <title>Contact Us | _REPLACE_SITE_NAME</title>
+    <title>Contact Us |</title>
   </head>
   <body class="animate__animated animate__fadeIn">
     <header class="l-header">
@@ -24,16 +24,53 @@
       <article role="doc-introduction">
         <h2>Contact form</h2>
 
-        <p>_REPLACE_INTRODUCTION_</p>
+        <p>Please fill in the form</p>
       </article>
 
       <section role="form-section">
-        <form action="" method="get"></form>
+        <form id="myForm" autocomplete="on">
+          <label class="form-label" for="name">Name:</label>
+          <input
+            class="form-input"
+            type="text"
+            id="name"
+            name="name"
+            required
+          />
+
+          <label class="form-label" for="email">Email:</label>
+          <input
+            class="form-input"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+
+          <label class="form-label" for="address">Address:</label>
+          <input
+            class="form-input"
+            type="text"
+            id="address"
+            name="address"
+            minlength="25"
+          />
+
+          <label class="form-label" for="subject">Subject:</label>
+          <input
+            class="form-input form-input-subject"
+            type="text"
+            id="subject"
+            name="subject"
+            minlength="10"
+          />
+
+          <input class="form-submit" type="submit" value="Submit" />
+        </form>
+        <div id="message"></div>
       </section>
     </main>
 
-    <footer class="l-footer">
-      <small>Created with ❤️ by Hallvard</small>
-    </footer>
+    <footer class="l-footer"></footer>
   </body>
 </html>

@@ -28,12 +28,12 @@ In the project directory, you can run:
 
 All of these todo's must be done to pass the asssignment.
 
-- [ ] End-user can see a list of items of the home page.
-- [ ] When the End-user clicks on an item in the list they are navigated to the details page.
-- [ ] End-user can view atleast three properties of an item in a list.
-- [ ] End-user can view atleast three properties of an item on the details page.
-- [ ] A error message is present when the End-user encounters a error while viewing the index page.
-- [ ] A error message is present when the End-user encounters a error while viewing the details page.
+- [x] End-user can see a list of items of the home page.
+- [x] When the End-user clicks on an item in the list they are navigated to the details page.
+- [x] End-user can view atleast three properties of an item in a list.
+- [x] End-user can view atleast three properties of an item on the details page.
+- [x] A error message is present when the End-user encounters a error while viewing the index page.
+- [x] A error message is present when the End-user encounters a error while viewing the details page.
 - [ ] End-user can view the title of the item on the browser tab for a details page.
 - [ ] End-user can view validation message when they input an incorrect name.
 - [ ] End-user can view validation message when they input an incorrect subject that is less than 10 characters.

@@ -20,3 +20,7 @@
 .toutch-target {
   min-height: 45px;
 }
+
+.form-error {
+  color: var(--text-error);
+}

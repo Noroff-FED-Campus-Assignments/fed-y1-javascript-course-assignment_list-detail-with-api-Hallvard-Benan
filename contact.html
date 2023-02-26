@@ -12,42 +12,40 @@
     />
     <meta name="author" content="_YOUR_NAME_" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
+    <script src="src/js/contact.js" type="module" defer></script>
     <title>Contact Us |</title>
   </head>
   <body class="animate__animated animate__fadeIn">
     <header class="l-header">
-      <h1>Contact Us</h1>
+      <a href="index.html?page=1">
+        <img src="logo.svg" alt="beer logo" class="logo" />
+        <h1>Home</h1></a
+      >
     </header>
 
     <main class="l-main">
       <article role="doc-introduction">
-        <h2>Contact form</h2>
-
+        <h2>Contact Us</h2>
         <p>Please fill in the form</p>
       </article>
 
       <section role="form-section">
-        <form id="myForm" autocomplete="on">
-          <label class="form-label" for="name">Name:</label>
-          <input
-            class="form-input"
-            type="text"
-            id="name"
-            name="name"
-            required
-          />
+        <form id="contact-form" autocomplete="on" class="c-form">
+          <label class="form-label" for="name">Full name:</label>
+          <input class="form-input" type="text" id="name" name="name" />
+          <div class="form-error is-hidden" id="name-error">
+            Please fill in your full name
+          </div>
 
           <label class="form-label" for="email">Email:</label>
-          <input
-            class="form-input"
-            type="email"
-            id="email"
-            name="email"
-            required
-          />
+          <input class="form-input" type="email" id="email" name="email" />
+          <div class="form-error is-hidden" id="email-error">
+            Please enter a valid email
+          </div>
 
-          <label class="form-label" for="address">Address:</label>
+          <label class="form-label" for="address"
+            >Address (minimum 25 caracters):</label
+          >
           <input
             class="form-input"
             type="text"
@@ -55,6 +53,9 @@
             name="address"
             minlength="25"
           />
+          <div class="form-error is-hidden" id="address-error">
+            Please enter a valid address
+          </div>
 
           <label class="form-label" for="subject">Subject:</label>
           <input
@@ -64,10 +65,13 @@
             name="subject"
             minlength="10"
           />
+          <div class="form-error is-hidden" id="subject-error">
+            subject must be at least 10 characters
+          </div>
 
           <input class="form-submit" type="submit" value="Submit" />
         </form>
-        <div id="message"></div>
+        <div class="form-error" id="name-error"></div>
       </section>
     </main>
 

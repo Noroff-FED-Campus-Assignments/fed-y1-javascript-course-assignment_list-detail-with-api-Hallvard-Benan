@@ -1,46 +1,36 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
-============================================
-*/
+const detailsContainer = document.querySelector(".details-container");
+const title = document.querySelector("#js-h1");
+const queryString = document.location.search;
+const documentTitle = document.querySelector("title");
 
-// TODO: Get DOM elements from the DOM
+const params = new URLSearchParams(queryString);
+const id = params.get("id");
 
-// TODO: Get the query parameter from the URL
+const url = `https://api.punkapi.com/v2/beers/${id}`;
 
-// TODO: Get the id from the query parameter
+async function getBeer() {
+  try {
+    const response = await fetch(url);
+    const result = await response.json();
+    const details = result[0];
 
-// TODO: Create a new URL with the id @example: https://www.youtube.com/shorts/ps7EkRaRMzs
+    detailsContainer.innerHTML = `
+    <div class="details">
+      <div class="details-description">
+        <p>${details.description} </p>
+        <div class="details-facts">
+    <p>Alcohol percentage: ${details.abv}</p>
+    <p>Best pairings: ${details.food_pairing.join(", ")}</p></div></div>
+    <div class="details-image-container">
+    <img src="${details.image_url}" alt="image of ${
+      details.name
+    }"" class="details-image"/> </div> </div>
+    `;
+    title.innerHTML = details.name;
+    documentTitle.textContent = `${details.name} | Brewster`;
+  } catch (error) {
+    detailsContainer.innerHTML = "error";
+  }
+}
 
-/*
-============================================
-DOM manipulation
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L89
-============================================
-*/
-
-// TODO: Fetch and Render the lsit to the DOM
-
-// TODO: Create event listeners for the filters and the search
-
-/*
-============================================
-Data fectching
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L104
-============================================
-*/
-
-// TODO: Fetch an a single of objects from the API
-
-/*
-============================================
-Helper functions
-============================================
-*/
-
-/**
- * TODO: Create a function to create a DOM element.
- * @example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/src/js/detail.js#L36
- * @param {item} item The object with properties from the fetched JSON data.
- */
+getBeer();

@@ -1,10 +1,144 @@
-/*!
- * UI
- * Place all your regular CSS here. If you don't know where to write your css, write it here.
- * @tutorial https://web.dev/learn/css/flexbox/
- * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-3/media-queries
- */
+h3 {
+  font-size: var(--font-size-4);
+  color: var(--text-2);
+}
 
-.c-card {
-  border-radius: --radius-1;
+h4 {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-4);
+}
+
+p {
+  font-size: var(--font-size-1);
+}
+
+.full-logo {
+  display: flex;
+}
+
+.logo {
+  max-width: 5rem;
+}
+
+@media (max-width: 495px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.contact-link {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-4);
+  color: var(--brand);
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.pagebuttons-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pagebuttons:hover,
+input:hover {
+  background-color: var(--brand);
+  color: var(--surface-1);
+}
+
+.loader-scaffold {
+  min-height: 300px;
+  animation: var(--animation-blink), var(--animation-pulse);
+}
+
+.results-list {
+  display: grid;
+  grid-gap: 1.2em;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.card {
+  max-width: 50rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 2rem;
+  color: var(--text-1);
+  background-color: var(--surface-2);
+  gap: 1.2rem;
+  border: 1px solid;
+  border-radius: 1rem;
+  transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out,
+    background-color 300ms;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-5);
+  transform: scale(1.03);
+  border-color: var(--brand);
+  background-color: var(--surface-3);
+}
+
+.card-image {
+  max-height: 12rem;
+}
+
+.card-info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-numbers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagebuttons {
+  border: 1px solid;
+  padding: 1em 1.5em;
+  border-radius: 1rem;
+  color: var(--brand);
+}
+
+.filter-section > * {
+  margin-bottom: 0.6rem;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  background-color: var(--surface-2);
+  padding: 2rem;
+  border: 1px solid white;
+}
+
+.details-description > * {
+  line-height: 1.4rem;
+  padding-top: 2rem;
+  gap: 2rem;
+  max-width: 40ch;
+}
+
+.details-facts {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-image {
+  max-width: 60%;
 }

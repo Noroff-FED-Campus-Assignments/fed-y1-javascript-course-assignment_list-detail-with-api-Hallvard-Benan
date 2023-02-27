@@ -1,53 +1,29 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
-============================================
-*/
+import { renderBeers } from "./functions/renderBeers.js";
+import { pageNumber } from "./functions/renderBeers.js";
+import { filterBeers } from "./functions/filters.js";
 
-// TODO: Get DOM elements from the DOM
+const searchBar = document.querySelector(".search-bar");
 
-/*
-============================================
-DOM manipulation
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L89
-============================================
-*/
+searchBar.addEventListener("keyup", () => getBeers(searchBar.value));
 
-// TODO: Fetch and Render the list to the DOM
+const url = `https://api.punkapi.com/v2/beers?page=${pageNumber}&per_page=80`;
+const resultsContainer = document.querySelector("#js-list-container");
 
-// TODO: Create event listeners for the filters and the search
+async function getBeers(searchUrl = "") {
+  let fetchUrl;
+  if (!searchUrl) {
+    fetchUrl = url;
+  } else fetchUrl = `https://api.punkapi.com/v2/beers?beer_name=${searchUrl}`;
+  try {
+    const response = await fetch(fetchUrl);
+    const beers = await response.json();
+    renderBeers(beers);
 
-/**
- * TODO: Create an event listener to sort the list.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L91
- */
+    filterBeers(beers);
+  } catch (error) {
+    resultsContainer.innerHTML = `<h2>Sorry, something went wrong bip bop🤖</h2>
+                                  <div>${error}</div>`;
+  }
+}
 
-/*
-============================================
-Data fectching
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L104
-============================================
-*/
-
-// TODO: Fetch an array of objects from the API
-
-/*
-============================================
-Helper functions
-https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L154
-============================================
-*/
-
-/**
- * TODO: Create a function to filter the list of item.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L135
- * @param {item} item The object with properties from the fetched JSON data.
- * @param {searchTerm} searchTerm The string used to check if the object title contains it.
- */
-
-/**
- * TODO: Create a function to create a DOM element.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/src/js/detail.js#L36
- * @param {item} item The object with properties from the fetched JSON data.
- */
+getBeers();

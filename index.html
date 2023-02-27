@@ -2,39 +2,99 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
     <meta
-      name="keywords"
-      content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
+      name="description"
+      content="This site lets you explore brewdogs vast selection of different beers"
     />
-    <meta name="author" content="_YOUR_NAME_" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, api, brewdog, beer" />
+    <meta name="author" content="Hallvard Benan" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>_REPLACE_SITE_NAME</title>
+    <script src="/src/js/app.js" defer type="module"></script>
+    <title>Beers | Brewster</title>
   </head>
-  <body class="animate__animated animate__fadeIn">
+  <body class="">
     <header class="l-header">
-      <h1>Home</h1>
+      <a href="index.html?page=1" class="full-logo">
+        <img src="logo.svg" alt="beer logo" class="logo" />
+        <h1>Brewster</h1></a
+      >
+      <nav>
+        <a href="contact.html" class="contact-link">contact</a>
+      </nav>
     </header>
-
     <main class="l-main">
-      <section role="search"></section>
+      <section role="search" class="filter-section">
+        <label for="search">Search for a beer</label>
+        <input
+          type="search"
+          placeholder="search"
+          class="search-bar is-toutch-target"
+          name="search"
+        />
+        <select
+          name="filters"
+          id="js-filters"
+          class="strengt-selector is-toutch-target"
+        >
+          <option value="">filter by...</option>
+          <option value="high abv">highest abv%</option>
+          <option value="low abv">lowest abv%</option>
+          <option value="a-z">a-z</option>
+          <option value="z-a">z-a</option>
+        </select>
+      </section>
 
       <article role="doc-introduction">
-        <h2>List</h2>
-
-        <p>_REPLACE_INTRODUCTION_</p>
+        <div class="pagebuttons-container" id="js-pagebuttons-container"></div>
+        <h2>Brewdog beers:</h2>
       </article>
 
       <section role="list">
-        <div id="js-list-container">_LOADING_INDICATOR_GOES_HERE_</div>
+        <div class="results-list" id="js-list-container">
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+          <div
+            class="loader-scaffold animate__animated animate__bounceInUp"
+          ></div>
+        </div>
       </section>
     </main>
 
     <footer class="l-footer">
-      <small>Created with ❤️ by _REPLACE_</small>
+      <a href="contact.html" class="is-is-toutch-target">Contact us</a>
     </footer>
   </body>
 </html>

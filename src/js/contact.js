@@ -1,30 +1,67 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L50
-============================================
-*/
+const contactForm = document.getElementById("contact-form");
+const intro = document.getElementById("js-contact-intro");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const addressInput = document.getElementById("address");
+const subjectInput = document.getElementById("subject");
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
+const addressError = document.getElementById("address-error");
+const subjectError = document.getElementById("subject-error");
+const validationMessageContainer =
+  document.getElementById("validation-message");
 
-// TODO: Get DOM elements from the DOM
+function validateForm(event) {
+  event.preventDefault();
 
-// TODO: Create event listeners for the form
+  hideError(nameError);
+  hideError(emailError);
+  hideError(addressError);
+  hideError(subjectError);
 
-/*
-============================================
-API calls
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L157
-============================================
-*/
+  const nameIsValid = checkLength(nameInput, 1, nameError);
+  const addressIsValid = checkLength(addressInput, 25, addressError);
+  const emailIsValid = validateEmail(emailInput, emailInput, emailError);
+  const subjectIsValid = checkLength(subjectInput, 10, subjectError);
 
-// TODO: Set up a function to fetch data from the API
+  if (nameIsValid && addressIsValid && emailIsValid && subjectIsValid) {
+    intro.innerHTML = "";
+    contactForm.innerHTML = `<div><div/>`;
+    validationMessageContainer.innerHTML =
+      '<div class="form-success"><h2>Thank you for your submission!</h2><p>Submission succsessful ✅</p></div><div><a href="javascript:history.back()" class="pagebuttons">← Back to beers</a></div>';
+    contactForm.reset();
+  }
+}
+contactForm.addEventListener("submit", validateForm);
 
-/*
-============================================
-Helper functions
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L118
-============================================
-*/
+function checkLength(target, requiredLength, errorContainer) {
+  if (target.value.trim().length < requiredLength) {
+    errorContainer.classList.remove("is-hidden");
+    target.classList.remove("valid");
+    return false;
+  } else {
+    errorContainer.classList.add("is-hidden");
+    target.classList.add("valid");
+    return true;
+  }
+}
 
-// TODO: Create a function to validate an input field
+function hideError(errorContainer) {
+  errorContainer.classList.add("is-hidden");
+}
 
-// TODO: Create a function to create a DOM element
+function validateEmail(target, email, errorContainer) {
+  const regEx =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+  const patternMatches = regEx.test(email.value);
+
+  if (patternMatches !== true) {
+    errorContainer.classList.remove("is-hidden");
+    target.classList.remove("valid");
+    return false;
+  } else {
+    errorContainer.classList.add("is-hidden");
+    target.classList.add("valid");
+    return true;
+  }
+}

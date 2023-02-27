@@ -2,31 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
-    <meta
-      name="keywords"
-      content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
-    />
-    <meta name="author" content="_YOUR_NAME_" />
+    <meta name="description" content="View details regarding this beer" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, api, brewdog, beer" />
+    <meta name="author" content="Hallvard Benan" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>_REPLACE_WITH_OBJECT_TITLE | _REPLACE_SITE_NAME</title>
+    <script src="src/js/details.js" defer type="module"></script>
+    <title></title>
   </head>
   <body class="animate__animated animate__fadeIn">
     <header class="l-header">
-      <h1><span id="js-h1">_REPLACE_WITH_OBJECT_TITLE</span>Details</h1>
+      <a href="index.html?page=1" class="full-logo">
+        <img src="logo.svg" alt="beer logo" class="logo" />
+        <h1>Brewster</h1></a
+      >
+      <nav>
+        <a href="contact.html" class="contact-link">Contact</a>
+      </nav>
     </header>
-
     <main class="l-main">
+      <a href="javascript:history.back()" class="pagebuttons is-toutch-target"
+        >← Back to beers</a
+      >
+      <h1>About <span id="js-h1"></span>:</h1>
       <article>
-        <!-- TODO: Insert loading indicator and replace with object detail properties -->
+        <div class="details-container">Loading...</div>
       </article>
     </main>
-
-    <footer class="l-footer">
-      <small>Created with ❤️ by _REPLACE_</small>
-    </footer>
+    <footer class="l-footer"></footer>
   </body>
 </html>

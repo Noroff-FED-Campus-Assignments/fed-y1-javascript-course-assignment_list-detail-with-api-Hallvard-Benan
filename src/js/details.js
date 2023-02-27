@@ -22,9 +22,9 @@ async function getBeer() {
     <p>Alcohol percentage: ${details.abv}</p>
     <p>Best pairings: ${details.food_pairing.join(", ")}</p></div></div>
     <div class="details-image-container">
-    <img src="${details.image_url}" alt="image of "${
+    <img src="${details.image_url}" alt="image of ${
       details.name
-    }" class="details-image"/> </div> </div>
+    }"" class="details-image"/> </div> </div>
     `;
     title.innerHTML = details.name;
     documentTitle.textContent = `${details.name} | Brewster`;

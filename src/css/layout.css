@@ -1,31 +1,11 @@
-/*!
- * Layout
- * Layout classes use the l- prefix to indicate they are layout classes.
- * @tutorial https://web.dev/learn/css/layout/
- * @example https://fed-vocational-astro-course.vercel.app/en/html-css/module-3/css-grids
- */
-
-/* body {
-  margin: 0;
-  width: 100%;
-  min-width: 320px;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: minmax(62px, auto) 1fr auto;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-} */
-
 .l-header {
   display: flex;
-  /* flex-direction: column; */
   align-items: end;
-  justify-content: center;
-  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 95%;
   padding: var(--size-fluid-1);
+  margin: auto;
 }
 
 .l-main {

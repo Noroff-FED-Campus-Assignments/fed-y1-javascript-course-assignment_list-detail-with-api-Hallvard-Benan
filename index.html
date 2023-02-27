@@ -4,22 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
     <meta
-      name="keywords"
-      content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
+      name="description"
+      content="This site lets you explore brewdogs vast selection of different beers"
     />
+    <meta name="keywords" content="HTML, CSS, JavaScript, api, brewdog, beer" />
     <meta name="author" content="Hallvard Benan" />
     <link rel="stylesheet" href="/style.css" />
     <script src="/src/js/app.js" defer type="module"></script>
-    <title>Beers</title>
+    <title>Beers | Brewster</title>
   </head>
   <body class="">
     <header class="l-header">
-      <a href="index.html?page=1">
+      <a href="index.html?page=1" class="full-logo">
         <img src="logo.svg" alt="beer logo" class="logo" />
-        <h1>Home</h1></a
+        <h1>Brewster</h1></a
       >
+      <nav>
+        <a href="contact.html" class="contact-link">contact</a>
+      </nav>
     </header>
     <main class="l-main">
       <section role="search" class="filter-section">
@@ -30,13 +33,12 @@
           class="search-bar is-toutch-target"
           name="search"
         />
-        <label for="filters">Filter by</label>
         <select
           name="filters"
           id="js-filters"
           class="strengt-selector is-toutch-target"
         >
-          <option value=""></option>
+          <option value="">filter by...</option>
           <option value="high abv">highest abv%</option>
           <option value="low abv">lowest abv%</option>
           <option value="a-z">a-z</option>

@@ -21,7 +21,7 @@ function validateForm(event) {
 
   const nameIsValid = checkLength(nameInput, 1, nameError);
   const addressIsValid = checkLength(addressInput, 25, addressError);
-  const emailIsValid = validateEmail(emailInput, emailError);
+  const emailIsValid = validateEmail(emailInput, emailInput, emailError);
   const subjectIsValid = checkLength(subjectInput, 10, subjectError);
 
   if (nameIsValid && addressIsValid && emailIsValid && subjectIsValid) {
@@ -37,9 +37,11 @@ contactForm.addEventListener("submit", validateForm);
 function checkLength(target, requiredLength, errorContainer) {
   if (target.value.trim().length < requiredLength) {
     errorContainer.classList.remove("is-hidden");
+    target.classList.remove("valid");
     return false;
   } else {
     errorContainer.classList.add("is-hidden");
+    target.classList.add("valid");
     return true;
   }
 }
@@ -48,16 +50,18 @@ function hideError(errorContainer) {
   errorContainer.classList.add("is-hidden");
 }
 
-function validateEmail(email, errorContainer) {
+function validateEmail(target, email, errorContainer) {
   const regEx =
     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
   const patternMatches = regEx.test(email.value);
 
   if (patternMatches !== true) {
     errorContainer.classList.remove("is-hidden");
+    target.classList.remove("valid");
     return false;
   } else {
     errorContainer.classList.add("is-hidden");
+    target.classList.add("valid");
     return true;
   }
 }

@@ -5,21 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
-    <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
-    <meta
-      name="keywords"
-      content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
-    />
-    <meta name="author" content="_YOUR_NAME_" />
+    <meta name="description" content="contact form to contact brewster " />
+    <meta name="keywords" content="HTML, CSS, JavaScript, api, brewdog, beer" />
+    <meta name="author" content="Hallvard Benan" />
     <link rel="stylesheet" href="/style.css" />
     <script src="src/js/contact.js" type="module" defer></script>
-    <title>Contact Us |</title>
+    <title>Contact Us | Brewster</title>
   </head>
   <body class="animate__animated animate__fadeIn">
     <header class="l-header">
-      <a href="index.html?page=1">
+      <a href="index.html?page=1" class="full-logo">
         <img src="logo.svg" alt="beer logo" class="logo" />
-        <h1>Home</h1></a
+        <h1>Brewster</h1></a
       >
     </header>
 
@@ -33,10 +30,13 @@
         <form id="contact-form" autocomplete="on" class="c-form">
           <label class="form-label" for="name">Full name:</label>
           <input
-            class="form-input toutch-target"
+            class="form-input is-toutch-target"
             type="text"
             id="name"
             name="name"
+            placeholder="full name"
+            aria-describedby="name-error"
+            required
           />
           <div class="form-error is-hidden" id="name-error">
             Please fill in your full name
@@ -44,11 +44,13 @@
 
           <label class="form-label" for="email">Email:</label>
           <input
-            class="form-input toutch-target"
+            class="form-input is-toutch-target"
             type="email"
             id="email"
             name="email"
             placeholder="example@email.com"
+            aria-describedby="email-error"
+            required
           />
           <div class="form-error is-hidden" id="email-error">
             Please enter a valid email
@@ -58,10 +60,13 @@
             >Address (minimum 25 caracters):</label
           >
           <input
-            class="form-input toutch-target"
+            class="form-input is-toutch-target"
             type="text"
             id="address"
             name="address"
+            placeholder="example-street 157, 1234, exampletown"
+            aria-describedby="address-error"
+            required
           />
           <div class="form-error is-hidden" id="address-error">
             Please enter a valid address
@@ -69,17 +74,20 @@
 
           <label class="form-label" for="subject">Subject:</label>
           <input
-            class="form-input form-input-subject toutch-target"
+            class="form-input form-input-subject is-toutch-target"
             type="text"
             id="subject"
             name="subject"
+            placeholder="your message here"
+            aria-describedby="subject-error"
+            required
           />
           <div class="form-error is-hidden" id="subject-error">
             subject must be at least 10 characters
           </div>
 
           <input
-            class="form-submit toutch-target"
+            class="form-submit is-toutch-target"
             type="submit"
             value="Submit"
           />

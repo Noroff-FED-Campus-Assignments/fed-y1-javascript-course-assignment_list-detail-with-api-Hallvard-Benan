@@ -5,7 +5,6 @@ const documentTitle = document.querySelector("title");
 
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-console.log(id);
 
 const url = `https://api.punkapi.com/v2/beers/${id}`;
 
@@ -14,20 +13,22 @@ async function getBeer() {
     const response = await fetch(url);
     const result = await response.json();
     const details = result[0];
-    console.log(details);
 
     detailsContainer.innerHTML = `
-    <div class="details-description">${details.description}</div>
+    <div class="details">
+      <div class="details-description">
+        <p>${details.description} </p>
+        <div class="details-facts">
     <p>Alcohol percentage: ${details.abv}</p>
-    <p>Best pairings: ${details.food_pairing.join(", ")}</p>
+    <p>Best pairings: ${details.food_pairing.join(", ")}</p></div></div>
+    <div class="details-image-container">
     <img src="${details.image_url}" alt="image of "${
       details.name
-    }" class="card-image"/>
+    }" class="details-image"/> </div> </div>
     `;
     title.innerHTML = details.name;
     documentTitle.textContent = `${details.name} | Brewster`;
   } catch (error) {
-    console.log(error);
     detailsContainer.innerHTML = "error";
   }
 }

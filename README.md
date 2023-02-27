@@ -13,17 +13,19 @@ This project was bootstrapped with Vite.
 - [API Docs](https://punkapi.com/documentation/v2)
 
 ## Report
-In this assignment we were tasked with finding and using an api to display a list of items, a seperate details page for that item, as well as a contact form with validation.
+In this assignment, we were tasked with finding and using an API to display a list of items, a separate details page for each item, and a contact form with validation.
 
-1. Choosing the api
-I chose brewdogs punk Api because it fullfilled the requirements, has a lot of neat data about the different items, and because I saw other students using the other api's I was considering, such as the pokemon api and the rick and morty api.
+Choosing the API
+I chose Brewdog's Punk API because it fulfilled the requirements, had a lot of neat data about the different items, and because I saw other students using the other APIs I was considering, such as the Pokemon API and the Rick and Morty API.
 
-2. Design
-The design of this website is basic, but has the purpose of displaying the content  across different screen-sizes and color-mode prefrences. Using open-props made it easy to make a dark and a light mode, and is something i will use again in the future. The grey and white colors were chosen to give good contrast, while not taking up much focus, making the images stand out. I added some subtle hover effects and a "skeleton-UI" to make the site feel a little more dynamic. The accent colors (orange) represents the color of beer, which is also the color of the log and favicon.
+Design
+The design of this website is basic, but serves the purpose of displaying content across different screen sizes and color mode preferences. Using open-props made it easy to create a dark and a light mode, and it is something I will use again in the future. The gray and white colors were chosen to provide good contrast while not taking up too much focus, making the images stand out. I added some subtle hover effects and a "skeleton-UI" to make the site feel more dynamic. The accent colors (orange) represent the color of beer, which is also the color of the logo and favicon.
 
-3. Challenges
-I learned a lot working on this project, mostly through making a lot of mistakes that cost me a lot of time. Firstly, I didn't realize the api I have chosen was paginated until a day after I had started coding. This meant that I had to rewrite and rethink a lot of the project. Instead of searching by using the filter-method on the array that has been fetched, I fixed the search functionality, and made links to different pages using the parameters provided by the api. However I could not fix the filter-functionality like that, so the filter still only applies to the results being displayed to the page (however this includes search results). One limitation I have not found a perfect solution for yet is that the last page accesible with the website is page 5, which can display up to 80 items. If this api gets updated with a lot more items, 5 pages potentially would not be enough, and one would have to manually update the code in order to accomadate. However for the time being this is a working solution. Some of the items didn't have images, so 
+Challenges
+I learned a lot while working on this project, mostly through making a lot of mistakes that cost me a lot of time. Firstly, I didn't realize that the API I had chosen was paginated until a day after I had started coding. This meant that I had to rewrite and rethink a lot of the project. Instead of searching by using the filter method on the array that has been fetched, I fixed the search functionality and made links to different pages using the parameters provided by the API. However, I could not fix the filter functionality the same way, so the filter still only applies to the results being displayed on the page (however, this includes search results). One limitation for which I have not found a perfect solution yet is that the last page accessible on the website is page 5, which can display up to 80 items. If the API is updated with more items, it may be necessary to manually update the code to accommodate them. However, for the time being, this is a working solution. Some of the items didn't have images, so I chose to replace them with a generic placeholder rather than remove them.
 
+Conclusion
+This project was a challenging but enjoyable learning experience, resulting in a simple but functional website with a lot of potential for improvement.
 
 
 
@@ -114,7 +116,7 @@ Make sure you go through this checklist before submitting your project to Moodle
 - [x] Named all images properly.
 - [x] Committed all my code to github.
 - [x] My repo is publically viewable.
-- [ ] I've submitted/ written a report.
+- [x] I've submitted/ written a report.
 - [x] I've removed all todo notes in code.
 - [x] I've removed all console logs in code.
 - [x] Code is formatted correctly.

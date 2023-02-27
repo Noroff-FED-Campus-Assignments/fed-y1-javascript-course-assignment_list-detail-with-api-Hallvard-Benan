@@ -8,9 +8,9 @@ This project was bootstrapped with Vite.
 ## Resources
 
 - [Design](_LINK_TO_FIGMA_)
-- [Production deploy](_LINK_TO_WEBSITE_)
-- [Deployment CI](_LINK_TO_NETLIFY_VERCEL_DASHBOARD_)
-- [API Docs](_LINK_TO_API_DOCS_)
+- [Production deploy](https://delicate-donut-e0f2dc.netlify.app/)
+- [Deployment CI](https://app.netlify.com/teams/hallvard-benan/overview)
+- [API Docs](https://punkapi.com/documentation/v2)
 
 ## Report
 
@@ -61,7 +61,7 @@ All of these todo's must be done to pass the asssignment.
 - [x] My commit messages are relavant and make sense. [How to write good commit messages](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
 - [ ] [End-user experiences a complete custom UI design.](https://www.figma.com/file/KExTTAE75DRhq2xTvapFR4/FED-Whiteboard?node-id=0%3A1&t=UItKehGgT8gRlibY-1)
 
-  - [ ] Is user-friendly
+  - [x] Is user-friendly
   - [ ] Effective use of the pillars of design
     - [ ] Typography
     - [ ] COlour
@@ -71,12 +71,12 @@ All of these todo's must be done to pass the asssignment.
   - [ ] Adhered to principles of design
     - [x] Contrast
     - [ ] Balance and alignment
-    - [ ] Emphasis
+    - [x] Emphasis
     - [ ] Proportion
-    - [ ] Hiearchy
-    - [ ] Repetition
-    - [ ] Ryhthem
-    - [ ] Pattern
+    - [x] Hiearchy
+    - [x] Repetition
+    - [x] Ryhthem
+    - [x] Pattern
     - [ ] Negative space
     - [ ] Movement
 
